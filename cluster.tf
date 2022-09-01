@@ -28,17 +28,10 @@ resource "aws_elasticache_subnet_group" "subnet-group" {
   }
 }
 
-# Created instances and adds to the mongodb cluster
-resource "aws_docdb_cluster_instance" "cluster_instances" {
-  count              = 1
-  identifier         = "roboshop-${var.ENV}"
-  cluster_identifier = aws_docdb_cluster.docdb.id
-  instance_class     = "db.t3.medium"
-}
 
-
-resource "aws_security_group" "allow_mongodb" {
-  name        = "roboshop-mongodb-${var.ENV}"
+# SG for redis
+resource "aws_security_group" "allow_redis" {
+  name        = "roboshop-redisb-${var.ENV}"
   description = "roboshop-monogdb-${var.ENV}"
   vpc_id      = data.terraform_remote_state.vpc.outputs.VPC_ID
 
