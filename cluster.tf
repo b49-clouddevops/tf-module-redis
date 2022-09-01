@@ -4,11 +4,19 @@ resource "aws_elasticache_cluster" "redis" {
   engine               = "redis"
   node_type            = "cache.t3.small"
   num_cache_nodes      = 1
-  parameter_group_name =  ?????
-  "
+  parameter_group_name = ""
   engine_version       = "3.2.10"
   port                 = 6379
 }
+
+
+# Creating the patameter group
+
+
+
+
+
+
 
 
 # Creating Subnet Grouo 
