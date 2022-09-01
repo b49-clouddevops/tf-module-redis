@@ -5,14 +5,16 @@ resource "aws_elasticache_cluster" "redis" {
   node_type            = "cache.t3.small"
   num_cache_nodes      = 1
   parameter_group_name = ""
-  engine_version       = "3.2.10"
+  engine_version       = "6.2"
   port                 = 6379
 }
 
 
 # Creating the patameter group
-
-
+resource "aws_elasticache_parameter_group" "default" {
+  name   = "cache-params"
+  family = "redis6.2"
+}
 
 
 
