@@ -1,4 +1,4 @@
-# Created Document DB : A Managed service for MongoDB
+# Creating Elasticcache : A Managed service for MongoDB
 resource "aws_docdb_cluster" "docdb" {
   cluster_identifier      = "roboshop-${var.ENV}"
   engine                  = "docdb"
