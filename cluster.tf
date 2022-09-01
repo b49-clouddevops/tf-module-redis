@@ -14,7 +14,7 @@ resource "aws_elasticache_cluster" "redis" {
 
 # Creating the patameter group
 resource "aws_elasticache_parameter_group" "default" {
-  name   = "cache-params"
+  name   = "roboshop=${var.ENV}"
   family = "redis6.2"
 }
 
