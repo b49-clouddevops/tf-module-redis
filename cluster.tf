@@ -1,12 +1,12 @@
-# Creating Elasticcache : A Managed service for MongoDB
-resource "aws_docdb_cluster" "docdb" {
-  cluster_identifier      = "roboshop-${var.ENV}"
-  engine                  = "docdb"
-  master_username         = "admin1"
-  master_password         = "roboshop1"
-  skip_final_snapshot     = true   # terraform destroy won't ask you that do you need a backup before deletion or not
-  db_subnet_group_name    = aws_docdb_subnet_group.docdb.name
-  vpc_security_group_ids  = [aws_security_group.allow_mongodb.id]
+# Creating Elasticcache : A Managed service for Redis
+resource "aws_elasticache_cluster" "redis" {
+  cluster_id           = "roboshop-${var.ENV}"
+  engine               = "redis"
+  node_type            = "cache.m4.large"
+  num_cache_nodes      = 1
+  parameter_group_name = "default.redis3.2"
+  engine_version       = "3.2.10"
+  port                 = 6379
 }
 
 
