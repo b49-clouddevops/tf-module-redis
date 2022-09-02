@@ -52,6 +52,6 @@ resource "aws_security_group" "allow_redis" {
   }
 
   tags = {
-    Name = "roboshop-mysql-${var.ENV}"
+    Name = "roboshop-redis-${var.ENV}"
   }
 }
