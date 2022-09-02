@@ -31,8 +31,8 @@ resource "aws_elasticache_subnet_group" "subnet-group" {
 
 # SG for redis
 resource "aws_security_group" "allow_redis" {
-  name        = "roboshop-mysql-${var.ENV}"
-  description = "roboshop-mysql-${var.ENV}"
+  name        = "roboshop-redis-${var.ENV}"
+  description = "roboshop-redis-${var.ENV}"
   vpc_id      = data.terraform_remote_state.vpc.outputs.VPC_ID
 
   ingress {
