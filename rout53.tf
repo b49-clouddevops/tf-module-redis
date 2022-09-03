@@ -5,6 +5,9 @@ resource "aws_route53_record" "redis-record" {
   type    = "CNAME"
   ttl     = 660
   records = [aws_elasticache_cluster.redis.cache_nodes[0].address]  # as the output gives in the list format
+  depends_on = [aws_elasticache_cluster.redis]
+     
+  
 }
 
 output "redis" {
