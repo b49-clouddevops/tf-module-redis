@@ -16,6 +16,9 @@ resource "aws_elasticache_cluster" "redis" {
 resource "aws_elasticache_parameter_group" "default" {
   name   = "roboshop-${var.ENV}"
   family = "redis6.x"
+  depends_on = [
+     
+  ]
 }
 
 # Creating Subnet Grouo 
