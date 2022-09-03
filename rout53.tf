@@ -8,5 +8,5 @@
 # }
 
 output "redis" {
-    value = 
+    value = aws_elasticache_cluster.redis
 }
