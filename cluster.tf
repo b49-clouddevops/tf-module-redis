@@ -30,6 +30,7 @@ resource "aws_elasticache_subnet_group" "subnet-group" {
 
 
 # SG for redis
+
 resource "aws_security_group" "allow_redis" {
   name        = "roboshop-redis-${var.ENV}"
   description = "roboshop-redis-${var.ENV}"
