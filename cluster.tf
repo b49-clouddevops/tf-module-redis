@@ -39,8 +39,8 @@ resource "aws_security_group" "allow_redis" {
 
   ingress {
     description = "TLS from VPC"
-    from_port   = var.ELASTICCCACHE_
-    to_port     = 6379
+    from_port   = var.ELASTICCCACHE_PORT
+    to_port     = var.ELASTICCCACHE_PORT
     protocol    = "tcp"
     cidr_blocks = [data.terraform_remote_state.vpc.outputs.VPC_CIDR]
   }
