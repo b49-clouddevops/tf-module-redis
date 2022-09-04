@@ -7,7 +7,7 @@ resource "aws_elasticache_cluster" "redis" {
   parameter_group_name = aws_elasticache_parameter_group.default.name
   engine_version       = "6.x"
   port                 = 6379
-  subnet_group_name    = aws_elasticache_subnet_group.subnet-group.name
+  subnet_group_name    = aws_elasticache_subnet_group.ec-subnet-group.name
   security_group_ids   = [aws_security_group.allow_redis.id]
 }
 
@@ -21,11 +21,11 @@ resource "aws_elasticache_parameter_group" "default" {
 
 # Creating Subnet Grouo 
 resource "aws_elasticache_subnet_group" "ec-subnet-group" {
-  name       = "roboshop-${var.ENV}"
+  name       = "roboshop-ec-${var.ENV}"
   subnet_ids = data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_IDS
 
   tags = {
-    Name = "roboshop-${var.ENV}"
+    Name = "roboshop-ec-${var.ENV}"
   }
 }
 
