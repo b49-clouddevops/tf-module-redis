@@ -5,7 +5,7 @@ resource "aws_elasticache_cluster" "redis" {
   node_type            = var.ELASTICCCACHE_NODE_TYPE
   num_cache_nodes      = var.ELASTICCCACHE_NODE_COUNT
   parameter_group_name = aws_elasticache_parameter_group.default.name
-  engine_version       = "6.x"
+  engine_version       = var.ELASTICCCACHE_PORT_ENGINE_VERSION
   port                 = 6379
   subnet_group_name    = aws_elasticache_subnet_group.ec-subnet-group.name
   security_group_ids   = [aws_security_group.allow_redis.id]
@@ -15,7 +15,7 @@ resource "aws_elasticache_cluster" "redis" {
 # Creating the patameter group
 resource "aws_elasticache_parameter_group" "default" {
   name   = "roboshop-${var.ENV}"
-  family = "redis6.x"
+  family = "redis${var.ELASTICCCACHE_PORT_ENGINE_VERSION}"
 
 }
 
